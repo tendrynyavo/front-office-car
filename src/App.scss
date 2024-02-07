@@ -22,6 +22,11 @@ $radius-img: 5px;
   height: fit-content;
   padding: 15px;
   position: relative;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
   
   &__img {
     
@@ -78,6 +83,7 @@ $radius-img: 5px;
   &__button {
     float: right;
     right: 0;
+    bottom: 100px;
   }
 
 }
@@ -172,10 +178,62 @@ $radius-img: 5px;
   &__info {
     margin-left: 100px;
 
+    span {
+      font-size: 35px;
+      float: right;
+    }
+
     &__modele {
       @extend .card-product__info__modele;
       font-size: 30px !important;
+
     }
+
+    &__marque {
+      @extend .card-product__info__marque;
+      font-size: 20px !important;
+    }
+
+    &__categorie {
+      @extend .card-product__info__categorie;
+      margin-top: 5px !important;
+    }
+
+    &__value {
+      margin-top: 10px;
+      display: flex;
+      
+      &__prix {
+        @extend .card-product__info__prix;
+        font-size: 15px !important;
+        border: 1px solid black;
+        border-radius: 50px;
+        width: fit-content;
+        padding: 10px;
+        margin-right: 10px;
+      }
+
+    }
+
+    &__description {
+      margin-top: 30px;
+    }
+
+    &__caracteristique {
+      margin-top: 30px;
+      
+      ul {
+        font-size: 13px;
+        margin-top: 10px;
+        list-style: none;
+      }
+    }
+
+    &__button {
+      margin-top: 20px;
+    }
+
+
   }
 
   img {

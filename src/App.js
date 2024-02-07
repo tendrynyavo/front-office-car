@@ -1,15 +1,19 @@
 import './App.scss';
 import ListeAnnonce from 'pages/annonce/liste-annonce';
-import Header from 'components/header/header';
-import Fiche from './pages/annonce/fiche-annonce';
+import Fiche from 'pages/annonce/fiche-annonce';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from 'pages/front-office/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      {/* <Fiche /> */}
-      <ListeAnnonce />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path='/annonce' element={<ListeAnnonce />} />
+          <Route path='/fiche' element={<Fiche />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

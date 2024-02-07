@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Input from "../form/input-form";
 
 const Header = () => {
@@ -18,8 +19,8 @@ const Header = () => {
     return (
         <nav className="header" id="scrolling-header">
             <div className="header__link">
-                <a href="#home">Home</a>
-                <a href="#home">Annonce</a>
+                <Link to="/home">Home</Link>
+                <Link to="/annonce">Annonce</Link>
                 <a href="#news">Discussions</a>
                 <a href="#contact">Favoris</a>
             </div>
