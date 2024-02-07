@@ -1,9 +1,191 @@
+
+// Palette de couleur
+$gris: #c9cdd0;
+$blanc: #ffffff;
+$yellow: #f6c951;
+$gris-fonce: #cacdd0;
+
+
+// Border Radius
+$radius-img: 5px;
+
 * {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
 }
 
-.App {
-  background-color: red;
+// Card StyleSheet
+.card-product {
+
+  width: 325px;
+  height: fit-content;
+  padding: 15px;
+  position: relative;
+  
+  &__img {
+    
+    img {
+      border-radius: $radius-img;
+      width: 100%;
+      height: 325px;
+      object-fit: cover;
+    }
+    
+  }
+  
+  &__info {
+
+    padding: 10px;
+
+    div {
+      margin-top: 5px;
+    }
+    
+    &__marque {
+      font-weight: thin;
+      font-size: 15px;
+      color: $yellow;
+    }
+
+    &__lieu {
+      font-weight: thin;
+      font-size: 12px;
+      color: #707072;
+    }
+    
+    &__categorie {
+      @extend .card-product__info__lieu;
+      margin-top: 10px !important;
+    }
+
+    &__date {
+      @extend .card-product__info__lieu;
+    }
+
+    &__modele {
+      font-weight: bolder;
+      font-size: 20px;
+    }
+
+    &__prix {
+      font-weight: 600;
+      margin-top: 8px !important;
+    }
+
+  }
+
+  &__button {
+    float: right;
+    right: 0;
+  }
+
+}
+
+// Annonce StyleSheet
+.annonce {
+
+  margin: 0px;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__line {
+    margin: 20px;
+    border: 0.5px solid $gris;
+    border-radius: 20px;
+  }
+
+  &__annonce-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+  }
+
+}
+
+
+// Header StyleSheet
+.header {
+  overflow: hidden;
+  height: 100px;
+  position: relative;
+  padding: 5px;
+  background-color: white;
+  position: sticky;
+  width: 100%;
+  z-index: 100;
+  
+
+
+  &__link {
+    position: absolute;
+    top: 30%;
+    margin-left: 70px;
+
+    a {
+      float: left;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  }
+
+  &__logo {
+    
+    img {
+      width: 180px;
+      position: absolute;
+      right: 45%;
+    }
+
+  }
+
+  &__profile {
+    position: absolute;
+    display: flex;
+    right: 70px;
+    top: 20%;
+
+    span {
+      font-size: 25px;
+      margin-left: 45px;
+      margin-top: 20px;
+    }
+    
+    &__name {
+      margin-top: 25px;
+    }
+
+  }
+
+}
+
+.fiche {
+
+  display: flex;
+  padding: 50px;
+
+  &__info {
+    margin-left: 100px;
+
+    &__modele {
+      @extend .card-product__info__modele;
+      font-size: 30px !important;
+    }
+  }
+
+  img {
+    width: 535px;
+    height: 668px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+
 }

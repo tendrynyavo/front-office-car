@@ -1,0 +1,4 @@
+gris: #c9cdd0
+blanc: #ffffff
+yellow: #f6c951
+gris foncé: #cacdd0

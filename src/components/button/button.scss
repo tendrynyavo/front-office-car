@@ -1,0 +1,15 @@
+@import '../../App.scss';
+
+.btn {
+    border: none;
+    padding: 10px 32px;
+    border-radius: 8px;
+    color: black;
+    background-color: #ffc72f;
+    // font-size: 10px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+}
