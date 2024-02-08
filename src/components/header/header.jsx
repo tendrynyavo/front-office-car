@@ -21,7 +21,7 @@ const Header = () => {
             <div className="header__link">
                 <Link to="/home">Home</Link>
                 <Link to="/annonce">Annonce</Link>
-                <a href="#news">Discussions</a>
+                <Link to="/message">Discussions</Link>
                 <a href="#contact">Favoris</a>
             </div>
             <div className="header__logo">

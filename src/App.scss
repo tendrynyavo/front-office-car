@@ -1,6 +1,6 @@
 
 // Palette de couleur
-$gris: #c9cdd0;
+$gris: #ebebeb;
 $blanc: #ffffff;
 $yellow: #f6c951;
 $gris-fonce: #cacdd0;
@@ -175,6 +175,13 @@ $radius-img: 5px;
   display: flex;
   padding: 50px;
 
+  &__img {
+    img {
+      position: sticky;
+      top: 50px;
+    }
+  }
+
   &__info {
     margin-left: 100px;
 
@@ -199,6 +206,11 @@ $radius-img: 5px;
       margin-top: 5px !important;
     }
 
+    &__date {
+      @extend .card-product__info__lieu;
+      margin-top: 5px !important;
+    }
+
     &__value {
       margin-top: 10px;
       display: flex;
@@ -219,14 +231,42 @@ $radius-img: 5px;
       margin-top: 30px;
     }
 
-    &__caracteristique {
+    &__detail {
+
       margin-top: 30px;
-      
-      ul {
-        font-size: 13px;
-        margin-top: 10px;
-        list-style: none;
+
+      .accordion {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        // border-bottom: 0.5px solid black;
+        border-bottom: 0.5px solid black;
+        span {
+          font-size: 20px;
+          cursor: pointer;
+        }
       }
+
+      .table {
+        transition: 0.5s;
+      }
+
+      table {
+        font-size: 13px;
+        margin-top: 20px;
+        border-collapse: collapse;
+        width: 100%;
+        
+        td {
+          padding: 15px;
+          // border-bottom: 1px solid #f0f0f0;
+          // border-top: 1px solid #f0f0f0;
+        }
+      }
+
+      tr:nth-child(odd) {
+        background-color: #f2f2f2;
+      }
+
     }
 
     &__button {
@@ -244,4 +284,153 @@ $radius-img: 5px;
   }
 
 
+}
+
+.row {
+  display: flex;
+
+  .bulle-message {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.044);
+    width: 200px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white;
+    
+    &__body {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    
+    &__date {
+      font-size: 10px;
+      float: right;
+      right: 0;
+    }
+    
+  }
+}
+
+// .App {
+//   background-color: $gris;
+//   padding: 30px;
+// }
+
+.notification {
+  display: flex;
+  background-color: white;
+  width: 300px;
+  padding: 20px;
+  justify-content: space-between;
+  border-radius: 10px;
+
+  &__number {
+
+    span {
+      background-color: $yellow;
+      color: white;
+      font-size: 13px;
+      padding: 5px 10px;
+      border-radius: 50%;
+      float: right;
+    }
+
+    p {
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+
+  }
+
+  &__user {
+    font-size: 15px;
+  }
+
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  // box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray; 
+  border-radius: 10px;
+  height: 8px;
+}
+
+.conversation {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  
+  & > div {
+    background-color: $gris;
+    padding: 20px;
+    border-radius: 10px;
+    height: 600px;
+  }
+  &__list {
+    
+    &__users {
+
+      overflow-y: scroll;
+      height: 550px;
+      
+      & > div {
+        margin-top: 10px;
+        width: 350px;
+      }
+
+    }
+
+    &__title {
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 20px;
+    }
+    
+    
+  }
+  
+  &__message {
+    margin-left: 5px;
+    width: 400px;
+    position: relative;
+
+    &__user {
+      padding-bottom: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    &__bubble {
+      height: 100%;
+      overflow-y: scroll;
+      height: 500px;
+      padding-left: 20px;
+      padding-right: 20px;
+      // margin-bottom: 50px;
+
+      & > div {
+        margin-top: 10px;
+      }
+
+    }
+
+    &__input {
+      
+
+      input {
+        width: 370px;
+      }
+    }
+  }
 }
