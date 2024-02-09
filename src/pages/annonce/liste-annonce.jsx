@@ -1,4 +1,4 @@
-import Card from 'components/card/card.jsx';
+import Card from '../../components/card/card.jsx';
 
 const ListeAnnonce = () => {
     return (

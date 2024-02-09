@@ -1,4 +1,4 @@
-import Button from "components/button/button";
+import Button from "../../components/button/button";
 import React from 'react';
 import Accordion from "../../components/accordion/accordion";
 

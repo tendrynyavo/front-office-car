@@ -1,6 +1,6 @@
-import BulleMessage from 'components/message/bulle';
-import UserNotification from 'components/message/user';
-import Input from 'components/form/input-form';
+import BulleMessage from '../../components/message/bulle';
+import UserNotification from '../../components/message/user';
+import Input from '../../components/form/input-form';
 
 const Message = () => {
     return (
