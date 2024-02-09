@@ -215,7 +215,7 @@ $radius-img: 5px;
 
 // Annonce StyleSheet
 .annonce {
-  margin-left: 17%;
+  margin-left: 18%;
 
   &__title {
     text-align: center;
@@ -230,7 +230,7 @@ $radius-img: 5px;
   &__annonce-grid {
     display: flex;
     flex-wrap: wrap;
-    width: 85%;
+    width: 100%;
     flex-direction: row;
   }
 

@@ -63,7 +63,8 @@ const ListeAnnonce = () => {
     // }, [anneeValues]);
     
 
-    console.log(annonces);
+    // console.log(annonces);
+
 
     function filteredData(selected) {
     
@@ -94,19 +95,33 @@ const ListeAnnonce = () => {
                 
                 <div className="annonce__annonce-grid">
 
-                {annonces.map((input) => {
-                    return(
-                        <Card 
-                        image={'peakpx.jpg'}
-                        modele={ input.voiture.modele.nom } 
-                        marque={ 'Mercedes-benz' } 
-                        categorie={ input.voiture.categorie.nom }
-                        lieu={ input.lieu.nom } 
-                        date={ input.date }
-                        prix={ input.prix }
-                    />
-                    )
+                {annonces.map((one, index) => {
+
+                    // check if object
+                    const isVoitureObject = typeof one.voiture === 'object';
+
+                    // check if modele
+                    const modele = isVoitureObject && one.voiture.modele ? one.voiture.modele.nom : one.voiture;
+
+                    //check if categorie
+                    const categorie = isVoitureObject && one.voiture.categorie ? one.voiture.categorie.nom : '';
+
+                    return (
+                        <>
+                            <Card  
+                                key={index}
+                                image={'peakpx.jpg'}
+                                modele={modele}
+                                marque={'Mercedes-benz'}  
+                                categorie={categorie}
+                                lieu={one.lieu.nom}  
+                                date={one.date}
+                                prix={one.prix}
+                            />
+                        </>
+                    );
                 })}
+
                     {/* <Card 
                         image={'peakpx.jpg'}
                         modele={'Maybach Virgil Abloh Edition'} 
