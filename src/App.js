@@ -1,5 +1,5 @@
 import './App.scss';
-import ListeAnnonce from './pages/annonce/Liste-annonce.jsx';
+import ListeAnnonce from './pages/annonce/Liste-annonces.jsx';
 import Fiche from './pages/annonce/Fiche-annonces.jsx';
 import { Routes, Route } from "react-router-dom";
 import Layout from './pages/front-office/Layout.jsx';
