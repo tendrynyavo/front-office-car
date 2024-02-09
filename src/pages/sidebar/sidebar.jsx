@@ -89,7 +89,7 @@ const Sidebar = ({handleChange, handleChangeIntervalle, inputValues}) => {
             {/* <Intervalle handleChangeIntervalle={inputValues[1]} title="Annee" min={inputValues[0][0]} max={inputValues[0][1]} inputValues={inputValues[0]} /> */}
             {/* <Intervalle handleChangeIntervalle={inputValues[3]} title="Kilometrage" min={inputValues[2][0]} max={inputValues[2][1]} inputValues={inputValues[2]} /> */}
             {/* <Intervalle handleChangeIntervalle={handleChangeIntervalle} title="Kilometrage" min={'kilometrageMin'} max={'kilometrageMax'} inputValues={inputValues} /> */}
-            {/* <Attribut handleChange={handleChange} title="Couleur" data={couleurs} name={"couleur"}/> */}
+            <Attribut handleChange={handleChange} title="Couleur" data={couleurs} name={"couleur"}/>
         </section>
     </>
   );
