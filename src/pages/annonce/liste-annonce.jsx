@@ -2,37 +2,44 @@ import Card from 'components/card/card.jsx';
 import Sidebar from '../sidebar/sidebar';
 import { useEffect, useState } from "react";
 
+const anneeMin = 1985;
+const anneeMax = 2024;
+
+const kilometrageMin = 0;
+const kilometrageMax = 1000000;
+
 const ListeAnnonce = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedCategoryname, setSelectedCategoryname] = useState(null);
-    const [inputValues, setInputValues] = useState({
-        prixMin: '',
-        prixMax: '',
-        anneeMin: '',
-        anneeMax: '',
-        kilometrageMin: '',
-        kilometrageMax: ''
-      });
+    const [anneeValues, setAnneeValues] = useState([anneeMin, anneeMax]);
+    const [kilometrageValues, setKilometrageValues] = useState([kilometrageMin, kilometrageMax]);
+
+    const combinedTable = [
+        anneeValues,
+        setAnneeValues,
+        kilometrageValues, 
+        setKilometrageValues
+    ];
 
     const handleChange = (event) => {  
         setSelectedCategory(event.target.value);
         setSelectedCategoryname(event.target.name);
     };
 
-    const handleChangeIntervalle = (event) => {
-        const { name, value } = event.target;
-        setInputValues(prevValues => ({
-          ...prevValues,
-          [name]: value
-        }));
+    // const handleChangeIntervalle = (event) => {
+    //     const { name, value } = event.target;
+    //     setInputValues(prevValues => ({
+    //       ...prevValues,
+    //       [name]: value
+    //     }));
 
-        // console.log(`Name: ${name}, Value: ${value}`);
-    }; 
+    //     // console.log(`Name: ${name}, Value: ${value}`);
+    // }; 
     
     // valeur mise a jour
     useEffect(() => {
-        console.log(inputValues);
-    }, [inputValues]);
+        console.log(anneeValues);
+    }, [anneeValues]);
     
 
     function filteredData(selected) {
@@ -58,7 +65,7 @@ const ListeAnnonce = () => {
     return (
         <div className='container'>
 
-            <Sidebar handleChange={handleChange} handleChangeIntervalle={handleChangeIntervalle} inputValues={inputValues} />
+            <Sidebar handleChange={handleChange} handleChangeIntervalle={combinedTable} inputValues={combinedTable} />
             
             <div className='annonce'>
                 

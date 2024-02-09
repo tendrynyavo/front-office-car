@@ -191,19 +191,24 @@ $radius-img: 5px;
     cursor: pointer;
   }
 
-  &-intervalle{
-    // width: 100%;
-    // display: grid;
-    // grid-template-columns:  1fr  1fr;
-    // gap: 5px;
+  &-intervalle-values{
+    padding: 0.5rem 0rem;
+  }
 
-    // &-gauche {
-    //   left: 0;
-    // }
-  
-    // &-droite {
-    //   right: 0;
-    // }
+  &-intervalle-slider{
+    width: 80%;
+    height: 10px;
+    background-color: $gris;
+    margin-bottom: 0.8rem;
+  }
+
+  &-intervalle-slider .thumb{
+    width: 10px;
+    height: 10px;
+    cursor: grab;
+    background: $gris;
+    border-radius: 50%;
+    border:2px solid $yellow;
   }
   
 }
