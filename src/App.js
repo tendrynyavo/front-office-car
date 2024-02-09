@@ -2,7 +2,7 @@ import './App.scss';
 import ListeAnnonce from 'pages/annonce/liste-annonce';
 import Fiche from 'pages/annonce/fiche-annonce';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from 'pages/front-office/layout';
+import Layout from 'pages/front-office/Layout';
 import Message from 'pages/message/message';
 
 function App() {
