@@ -2,25 +2,17 @@ import { Link } from "react-router-dom";
 import Input from "../form/input-form";
 
 const Header = () => {
-    
-    let prevScrollpos = window.scrollY;
 
-    window.onscroll = () => {
-        let currentScrollPos = window.scrollY;
-        if (prevScrollpos > currentScrollPos) {
-            document.getElementsByClassName("header")[0].style.top = "0";
-            document.getElementsByClassName("header")[0].style.transition = "0.3s";
-        } else {
-            document.getElementsByClassName("header")[0].style.top = "-110px";
-        }
-        prevScrollpos = currentScrollPos;
+    const menuToggle = () => {
+        const toggleMenu = document.querySelector(".menu");
+        toggleMenu.classList.toggle("active");
     }
 
     return (
         <nav className="header" id="scrolling-header">
             <div className="header__link">
                 <Link to="/home">Home</Link>
-                <Link to="/annonce">Annonce</Link>
+                <Link to="/">Annonce</Link>
                 <Link to="/message">Discussions</Link>
                 <a href="#contact">Favoris</a>
             </div>
@@ -28,15 +20,33 @@ const Header = () => {
                 <img src="original-09fbcba49141e23681d567a670936f32.jpg" alt="" />
             </div>
             <div className="header__profile">
-                <div className="header__profile__name">
-                    Tendry Ny Avo
+                <div className="header__profile__search">
+                    <form>
+                        <span class="material-symbols-outlined search">
+                            search
+                        </span>
+                        <Input placeholder={'Search....'} />
+                    </form>
                 </div>
-                <span className="material-symbols-outlined">
-                    person
-                </span>
-                <span className="material-symbols-rounded">
-                    logout
-                </span>
+                <div class="action">
+                    <span onClick={menuToggle} className="material-symbols-outlined">
+                        person
+                    </span>
+                    <div class="menu">
+                        <h3>Tendry Ny Avo</h3>
+                        <ul>
+                            <li>
+                                <img src="./assets/icons/user.png" alt="" /><a href="#">Historique Annonce</a>
+                            </li>
+                            <li>
+                                <img src="./assets/icons/edit.png" alt="" /><a href="#">Liste favoris</a>
+                            </li>
+                            <li>
+                                <img src="./assets/icons/log-out.png" alt="" /><a href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </nav>
     );
