@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Input from "../form/input-form";
+import Input from "../form/Input-form";
 
 const Header = () => {
 

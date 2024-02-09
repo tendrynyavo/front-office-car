@@ -1,5 +1,5 @@
-import Input from "./input-form";
-import Button from "../button/button";
+import Input from "./Input-form";
+import Button from "../button/Button";
 import './formulaire.scss';
 
 const Formulaire = ({func, inputs = [], error}) => {
