@@ -1,5 +1,5 @@
 import Button from "components/button/button";
-import React, { useState } from 'react';
+import React from 'react';
 import Accordion from "../../components/accordion/accordion";
 
 const Fiche = () => {

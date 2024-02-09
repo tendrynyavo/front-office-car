@@ -1,14 +1,14 @@
 import Formulaire from 'components/form/formulaire';
 import './login.scss';
-import { useState, React } from 'react';
-import { useNavigate } from "react-router-dom";
+// import { useState, React } from 'react';
+// import { useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 // import usersAPI from "services/login/usersService";
 
 const Login = ({ setToken }) => {
     
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
+    // const [error, setError] = useState("");
+    // const navigate = useNavigate();
 
     const inputs = [
         {
@@ -72,7 +72,7 @@ const Login = ({ setToken }) => {
                     <h2>Welcome Back</h2>
                     <p>Please enter your details</p>
                 </div>
-                <Formulaire inputs={inputs} error={error} />
+                <Formulaire inputs={inputs} error={''} />
             </div>
         </div>
     )
