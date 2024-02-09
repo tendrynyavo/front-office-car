@@ -50,26 +50,32 @@ const ListeAnnonce = () => {
         } );
     };
 
-
     useEffect( () => {
         setIsLoading(true);
         fetchAnnouncement();
         setIsLoading(false);
     }, [isLoading] );
-    
-    // valeur mise a jour
-    // useEffect(() => {
-    //     console.log(anneeValues);
-    // }, [anneeValues]);
-    
 
     // console.log(annonces);
 
+    // {
+    //     "idCategorie": "CAT01",
+    //     "idBoite": "BDV02"
+    // }
 
-    function filteredData(selected) {
-    
+    function filteredData(annonces, selected, selectedName) {
+        let filteredData = {
+            "idCategorie": "",
+            "idBoite": "",
+        };
+
         if (selected) {
-            // console.log(selected);
+            console.log(selected);
+            if(selectedName === "categorie"){
+                filteredData["idCategorie"] = selected;
+            } else if(selectedName === "boite"){
+                filteredData["idBoite"] = selected;
+            }
         //   filteredProducts = filteredProducts.filter(
         //     ({ category, color, company, newPrice, title }) =>
         //       category === selected ||
@@ -79,11 +85,13 @@ const ListeAnnonce = () => {
         //       title === selected
         //   );
         }
+
+        console.log(JSON.stringify(filteredData));
     
         return ""
     }
     
-    filteredData(selectedCategory);
+    filteredData(annonces, selectedCategory, selectedCategoryname);
     // const result = filteredData(products, selectedCategory, query);
 
     return (
@@ -112,7 +120,7 @@ const ListeAnnonce = () => {
                                 key={index}
                                 image={'peakpx.jpg'}
                                 modele={modele}
-                                marque={'Mercedes-benz'}  
+                                marque={one.id + ' Mercedes-benz'}  
                                 categorie={categorie}
                                 lieu={one.lieu.nom}  
                                 date={one.date}
@@ -122,88 +130,6 @@ const ListeAnnonce = () => {
                     );
                 })}
 
-                    {/* <Card 
-                        image={'peakpx.jpg'}
-                        modele={'Maybach Virgil Abloh Edition'} 
-                        marque={'Mercedes-benz'} 
-                        categorie={'SUV'}
-                        lieu={'Ambohipo'} 
-                        date={'02/04/2024'}
-                        prix={'1.000.000'}
-                    />
-
-                    <Card 
-                        image={'cybertruck-debut.jpeg'}
-                        modele={'Cybertrunk'} 
-                        marque={'Tesla'} 
-                        categorie={'4x4'}
-                        lieu={'Ambohipo'} 
-                        date={'02/04/2024'}
-                        prix={'100.000.000'}
-                    />
-                    <Card 
-                        image={'Clint419.jpg'}
-                        modele={'Cybertrunk'} 
-                        marque={'Jeep'} 
-                        categorie={'SUV'}
-                        lieu={'Ambohipo'} 
-                        date={'02/04/2024'}
-                        prix={'150.000.000'}
-                    />
-                    <Card 
-                        image={'cybertruck-debut.jpeg'}
-                        modele={'Cybertrunk'} 
-                        marque={'Tesla'} 
-                        categorie={'4x4'}
-                        lieu={'Ambohipo'} 
-                        date={'02/04/2024'}
-                        prix={'100.000.000'}
-                    />
-                    <Card 
-                        image={'Clint419.jpg'}
-                        modele={'Cybertrunk'} 
-                        marque={'Tesla'} 
-                        categorie={'4x4'}
-                        lieu={'Ambohipo'} 
-                        date={'02/04/2024'}
-                        prix={'100.000.000'}
-                    />
-                    <Card 
-                        image={'cybertruck-debut.jpeg'}
-                        modele={'Cybertrunk'} 
-                        marque={'Tesla'} 
-                        categorie={'4x4'}
-                        lieu={'Ambohipo'} 
-                        date={'02/04/2024'}
-                        prix={'100.000.000'}
-                    />
-                    <Card 
-                        image={'cybertruck-debut.jpeg'}
-                        modele={'Cybertrunk'} 
-                        marque={'Tesla'} 
-                        categorie={'4x4'}
-                        lieu={'Ambohipo'} 
-                        date={'02/04/2024'}
-                        prix={'100.000.000'}
-                    />
-                    <Card 
-                        image={'cybertruck-debut.jpeg'}
-                        modele={'Cybertrunk'} 
-                        marque={'Tesla'} 
-                        categorie={'4x4'}
-                        lieu={'Ambohipo'} 
-                        date={'02/04/2024'}
-                        prix={'100.000.000'}
-                    />
-                    <Card 
-                        image={'cybertruck-debut.jpeg'}
-                        modele={'Cybertrunk'} 
-                        marque={'Tesla'} 
-                        categorie={'4x4'}
-                        lieu={'Ambohipo'} 
-                        date={'02/04/2024'}
-                        prix={'100.000.000'}
-                    /> */}
                 </div>
             </div>
         </div>

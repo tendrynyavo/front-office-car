@@ -24,10 +24,10 @@ const Attribut = ({ handleChange, title, data, name }) => {
                         <Radio
                             key={index}
                             handleChange={handleChange} 
-                            value={ input.value }
-                            title={ input.title }
+                            value={ input.id }
+                            title={ input.nom }
                             name={ name }
-                            {...(input.color && { color: input.color })}
+                            {...(input.nom && { color: input.nom })}
                         />
                     )
                 })}
