@@ -1,6 +1,8 @@
 import Card from 'components/card/card.jsx';
 import Sidebar from '../sidebar/sidebar';
 import { useEffect, useState } from "react";
+import { getList } from '../../services/crud';
+import { useNavigate } from "react-router-dom";
 
 const anneeMin = 1985;
 const anneeMax = 2024;
@@ -35,17 +37,38 @@ const ListeAnnonce = () => {
 
     //     // console.log(`Name: ${name}, Value: ${value}`);
     // }; 
+
+    const navigate = useNavigate();
+    const [annonces , setAnnonces] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const fetchAnnouncement = () => {
+        let liste = "annonces/list";
+        let a = getList( liste );
+        a.then( response => {
+            setAnnonces(response.data)
+        } );
+    };
+
+
+    useEffect( () => {
+        setIsLoading(true);
+        fetchAnnouncement();
+        setIsLoading(false);
+    }, [isLoading] );
     
     // valeur mise a jour
-    useEffect(() => {
-        console.log(anneeValues);
-    }, [anneeValues]);
+    // useEffect(() => {
+    //     console.log(anneeValues);
+    // }, [anneeValues]);
     
+
+    console.log(annonces);
 
     function filteredData(selected) {
     
         if (selected) {
-            console.log(selected);
+            // console.log(selected);
         //   filteredProducts = filteredProducts.filter(
         //     ({ category, color, company, newPrice, title }) =>
         //       category === selected ||
@@ -70,7 +93,21 @@ const ListeAnnonce = () => {
             <div className='annonce'>
                 
                 <div className="annonce__annonce-grid">
-                    <Card 
+
+                {annonces.map((input) => {
+                    return(
+                        <Card 
+                        image={'peakpx.jpg'}
+                        modele={ input.voiture.modele.nom } 
+                        marque={ 'Mercedes-benz' } 
+                        categorie={ input.voiture.categorie.nom }
+                        lieu={ input.lieu.nom } 
+                        date={ input.date }
+                        prix={ input.prix }
+                    />
+                    )
+                })}
+                    {/* <Card 
                         image={'peakpx.jpg'}
                         modele={'Maybach Virgil Abloh Edition'} 
                         marque={'Mercedes-benz'} 
@@ -79,6 +116,7 @@ const ListeAnnonce = () => {
                         date={'02/04/2024'}
                         prix={'1.000.000'}
                     />
+
                     <Card 
                         image={'cybertruck-debut.jpeg'}
                         modele={'Cybertrunk'} 
@@ -150,7 +188,7 @@ const ListeAnnonce = () => {
                         lieu={'Ambohipo'} 
                         date={'02/04/2024'}
                         prix={'100.000.000'}
-                    />
+                    /> */}
                 </div>
             </div>
         </div>
