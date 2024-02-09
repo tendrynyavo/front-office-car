@@ -1,4 +1,4 @@
-import Formulaire from '../../components/form/Formulaire';
+import Formulaire from '../../components/form/Formulaires';
 import './login.scss';
 // import { useState, React } from 'react';
 // import { useNavigate } from "react-router-dom";

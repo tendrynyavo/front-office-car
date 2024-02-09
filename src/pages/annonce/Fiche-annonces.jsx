@@ -1,6 +1,6 @@
-import Button from "../../components/button/Button";
+import Button from "../../components/button/Buttons";
 import React from 'react';
-import Accordion from "../../components/accordion/accordion";
+import Accordion from "../../components/accordion/Accordions";
 
 const Fiche = () => {
 
