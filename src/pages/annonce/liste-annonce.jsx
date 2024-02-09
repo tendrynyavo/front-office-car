@@ -1,7 +1,7 @@
 import Card from 'components/card/card.jsx';
 import Sidebar from '../sidebar/sidebar';
 import { useEffect, useState } from "react";
-import { getList } from '../../services/crud';
+import { ajouter, getList } from '../../services/crud';
 import { useNavigate } from "react-router-dom";
 
 const anneeMin = 1985;
@@ -23,24 +23,37 @@ const ListeAnnonce = () => {
         setKilometrageValues
     ];
 
-    const handleChange = (event) => {  
-        setSelectedCategory(event.target.value);
-        setSelectedCategoryname(event.target.name);
-    };
-
-    // const handleChangeIntervalle = (event) => {
-    //     const { name, value } = event.target;
-    //     setInputValues(prevValues => ({
-    //       ...prevValues,
-    //       [name]: value
-    //     }));
-
-    //     // console.log(`Name: ${name}, Value: ${value}`);
-    // }; 
-
     const navigate = useNavigate();
     const [annonces , setAnnonces] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [filters, setFilters] = useState({});
+
+    const handleChange = (event) => {   
+        const { name, value } = event.target;
+        let filterKey = name;
+        
+        if (name === "categorie") {
+            filterKey = "idCategorie";
+        } else if (name === "boite") {
+            filterKey = "idBoite";
+        } else if (name === "couleur") {
+            filterKey = "idCouleur";
+        }
+        
+        setFilters(prevFilters => ({
+            ...prevFilters,
+            [filterKey]: value
+        }));
+    };
+    
+
+    const fetchAnnouncementResult = (filter) => {
+        let liste = "annonces/search";
+        let a = ajouter(filter, liste);
+        a.then(response => {
+            setAnnonces(response.data);
+        });
+    };
 
     const fetchAnnouncement = () => {
         let liste = "annonces/list";
@@ -50,49 +63,24 @@ const ListeAnnonce = () => {
         } );
     };
 
-    useEffect( () => {
+    useEffect(() => {
         setIsLoading(true);
-        fetchAnnouncement();
-        setIsLoading(false);
-    }, [isLoading] );
-
-    // console.log(annonces);
-
-    // {
-    //     "idCategorie": "CAT01",
-    //     "idBoite": "BDV02"
-    // }
-
-    function filteredData(annonces, selected, selectedName) {
-        let filteredData = {
-            "idCategorie": "",
-            "idBoite": "",
-        };
-
-        if (selected) {
-            console.log(selected);
-            if(selectedName === "categorie"){
-                filteredData["idCategorie"] = selected;
-            } else if(selectedName === "boite"){
-                filteredData["idBoite"] = selected;
-            }
-        //   filteredProducts = filteredProducts.filter(
-        //     ({ category, color, company, newPrice, title }) =>
-        //       category === selected ||
-        //       color === selected ||
-        //       company === selected ||
-        //       newPrice === selected ||
-        //       title === selected
-        //   );
+        const filter = { ...filters }; // Copie des filtres actuels
+        console.log("Filtres actuels :", filter);
+        if(Object.keys(filter).length >   0){
+            fetchAnnouncementResult(filter);
+        } else {
+            fetchAnnouncement();
         }
-
-        console.log(JSON.stringify(filteredData));
+        setIsLoading(false);
+    }, [filters, isLoading]);
     
-        return ""
-    }
+    useEffect(() => {
+        console.log("Annonces mises à jour:", annonces);
+    }, [annonces]);
     
-    filteredData(annonces, selectedCategory, selectedCategoryname);
-    // const result = filteredData(products, selectedCategory, query);
+    
+    // console.log(annonces);
 
     return (
         <div className='container'>
