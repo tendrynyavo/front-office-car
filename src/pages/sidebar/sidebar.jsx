@@ -84,7 +84,7 @@ const Sidebar = ({handleChange, handleChangeIntervalle, inputValues}) => {
         <section className="sidebar">
             <Attribut handleChange={handleChange} title="Categorie" data={categories} name={"categorie"} />
             {/* <Attribut handleChange={handleChange} title="Modele" data={modeles} name={"modele"}/> */}
-            {/* <Attribut handleChange={handleChange} title="Moteur" data={moteurs} name={"moteur"}/> */}
+            <Attribut handleChange={handleChange} title="Moteur" data={moteurs} name={"moteur"}/>
             <Attribut handleChange={handleChange} title="Boite" data={boites} name={"boite"}/>
             {/* <Intervalle handleChangeIntervalle={inputValues[1]} title="Annee" min={inputValues[0][0]} max={inputValues[0][1]} inputValues={inputValues[0]} /> */}
             {/* <Intervalle handleChangeIntervalle={inputValues[3]} title="Kilometrage" min={inputValues[2][0]} max={inputValues[2][1]} inputValues={inputValues[2]} /> */}

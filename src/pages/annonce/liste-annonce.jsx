@@ -38,6 +38,8 @@ const ListeAnnonce = () => {
             filterKey = "idBoite";
         } else if (name === "couleur") {
             filterKey = "idCouleur";
+        } else if (name === "moteur") {
+            filterKey = "idMoteur";
         }
         
         setFilters(prevFilters => ({
