@@ -58,7 +58,7 @@ const Fiche = () => {
                 </div>
                 <div className="fiche__info">
                     
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                         favorite
                     </span>
                     

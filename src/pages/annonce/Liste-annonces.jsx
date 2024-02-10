@@ -12,8 +12,6 @@ const kilometrageMin = 0;
 const kilometrageMax = 1000000;
 
 const ListeAnnonce = () => {
-    const [selectedCategory, setSelectedCategory] = useState(null);
-    const [selectedCategoryname, setSelectedCategoryname] = useState(null);
     const [anneeValues, setAnneeValues] = useState([anneeMin, anneeMax]);
     const [kilometrageValues, setKilometrageValues] = useState([kilometrageMin, kilometrageMax]);
 
@@ -41,6 +39,8 @@ const ListeAnnonce = () => {
             filterKey = "idCouleur";
         } else if (name === "moteur") {
             filterKey = "idMoteur";
+        } else if (name === "modele") {
+            filterKey = "idModele";
         }
         
         setFilters(prevFilters => ({
@@ -53,6 +53,12 @@ const ListeAnnonce = () => {
     const fetchAnnouncementResult = (filter) => {
         let liste = "annonces/search";
         let a = ajouter(filter, liste);
+
+        if (anneeValues[0] !== anneeMin || anneeValues[1] !== anneeMax) {
+            filter.anneeMin = anneeValues[0];
+            filter.anneeMax = anneeValues[1];
+        }
+
         a.then(response => {
             setAnnonces(response.data);
         });
@@ -68,7 +74,7 @@ const ListeAnnonce = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        const filter = { ...filters }; // Copie des filtres actuels
+        const filter = { ...filters }; // clone
         console.log("Filtres actuels :", filter);
         if(Object.keys(filter).length >   0){
             fetchAnnouncementResult(filter);

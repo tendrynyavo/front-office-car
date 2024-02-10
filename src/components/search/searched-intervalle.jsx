@@ -2,7 +2,6 @@ import Radio from "./radio";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
-import Input from "../form/input-form";
 import Slider from "react-slider";
 
 const Intervalle = ({ handleChangeIntervalle, title, min, max, inputValues }) => {

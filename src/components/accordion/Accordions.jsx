@@ -36,7 +36,7 @@ const Accordion = ({items, title, id, value}) => {
 
     return (
         <div className="accordion detail">
-            { title }<span class="material-symbols-outlined" onClick={(e) => accordionClick(e)}>expand_more</span>
+            { title }<span className="material-symbols-outlined" onClick={(e) => accordionClick(e)}>expand_more</span>
             <div 
                 className="table"
                 style={{
