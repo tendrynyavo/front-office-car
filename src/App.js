@@ -1,7 +1,7 @@
 import './App.scss';
 import ListeAnnonce from './pages/annonce/Liste-annonces';
 import Fiche from './pages/annonce/Fiche-annonces';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Layout from './pages/front-office/Layouts';
 import Message from './pages/message/Messages';
 import Login from './pages/login/Login-back-offices';
