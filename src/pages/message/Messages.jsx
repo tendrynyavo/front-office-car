@@ -71,9 +71,6 @@ const Message = () => {
             </div>
 
             <div className="conversation__message">
-                <div className='conversation__message__user'>
-                    Tendry Ny Avo
-                </div>
                 <div className='conversation__message__bubble'>
                     {messages.map((message) => {
                         return (
