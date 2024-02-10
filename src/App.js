@@ -4,10 +4,12 @@ import Fiche from './pages/annonce/Fiche-annonces';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './pages/front-office/Layouts';
 import Message from './pages/message/Messages';
+import Login from './pages/login/Login-back-offices';
+import useToken from './hooks/useToken';
 
 function App() {
 
-  // const {token, setToken} = useToken();
+  const {token, setToken} = useToken();
   
   if (!token) {
     return <Login setToken={setToken} />;
