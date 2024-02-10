@@ -12,7 +12,7 @@ function App() {
   const {token, setToken} = useToken();
 
   
-  if (token) {
+  if (!token) {
     return <Login setToken={setToken} />;
   }
 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<ListeAnnonce />} />
           <Route path='/fiche' element={<Fiche />} />
-          <Route path='/message' element={<Message />} />
+          <Route path='/message/:id' element={<Message />} />
         </Route>
       </Routes>
   );

@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import Input from "../form/Input-forms";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+
+    const navigate = useNavigate();
 
     const menuToggle = () => {
         const toggleMenu = document.querySelector(".menu");
         toggleMenu.classList.toggle("active");
+    }
+
+    const logSubmit = () => {
+        sessionStorage.removeItem('token');
+        navigate('/');
     }
 
     return (
@@ -42,7 +50,7 @@ const Header = () => {
                                 <img src="./assets/icons/edit.png" alt="" /><a href="#">Liste favoris</a>
                             </li>
                             <li>
-                                <img src="./assets/icons/log-out.png" alt="" /><a href="#">Logout</a>
+                                <img src="./assets/icons/log-out.png" alt="" /><a onClick={logSubmit}>Logout</a>
                             </li>
                         </ul>
                     </div>
