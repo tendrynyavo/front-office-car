@@ -1,16 +1,13 @@
 import './App.scss';
-import ListeAnnonce from './pages/annonce/Liste-annonces.jsx';
-import Fiche from './pages/annonce/Fiche-annonces.jsx';
-import { Routes, Route } from "react-router-dom";
-import Layout from './pages/front-office/Layouts.jsx';
-import Message from './pages/message/Messages.jsx';
-import Login from './pages/login/Login-back-offices.jsx';
-import useToken from './hooks/useToken.js';
+import ListeAnnonce from './pages/annonce/Liste-annonces';
+import Fiche from './pages/annonce/Fiche-annonces';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from './pages/front-office/Layouts';
+import Message from './pages/message/Messages';
 
 function App() {
 
-  const {token, setToken} = useToken();
-
+  // const {token, setToken} = useToken();
   
   if (!token) {
     return <Login setToken={setToken} />;

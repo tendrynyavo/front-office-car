@@ -30,17 +30,17 @@ const Header = () => {
             <div className="header__profile">
                 <div className="header__profile__search">
                     <form>
-                        <span class="material-symbols-outlined search">
+                        <span className="material-symbols-outlined search">
                             search
                         </span>
                         <Input placeholder={'Search....'} />
                     </form>
                 </div>
-                <div class="action">
+                <div className="action">
                     <span onClick={menuToggle} className="material-symbols-outlined">
                         person
                     </span>
-                    <div class="menu">
+                    <div className="menu">
                         <h3>Tendry Ny Avo</h3>
                         <ul>
                             <li>
