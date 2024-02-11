@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<ListeAnnonce />} />
-          <Route path='/fiche' element={<Fiche />} />
+          <Route path='/fiche/:id' element={<Fiche />} />
           <Route path='/message/:id' element={<Message />} />
         </Route>
       </Routes>

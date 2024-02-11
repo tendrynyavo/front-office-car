@@ -1,5 +1,6 @@
 import Button from "../../components/button/Buttons";
-import React, { useEffect, useState, useParams } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Accordion from "../../components/accordion/Accordions";
 import { getList } from "../../services/crud";
 
