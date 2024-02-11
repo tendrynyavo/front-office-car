@@ -98,7 +98,12 @@ const Fiche = () => {
                         >
                             {annonce.photos.map((image) => {
                                 return (
-                                    <SwiperSlide><img src={ "data:image/png;base64," + image.bytes } alt="Not found" /></SwiperSlide>
+                                    <SwiperSlide>
+                                        <img 
+                                            src={ "data:image/png;base64," + image.bytes } 
+                                            alt="Not found" 
+                                        />
+                                    </SwiperSlide>
                                 );
                             })}
                         </Swiper>
