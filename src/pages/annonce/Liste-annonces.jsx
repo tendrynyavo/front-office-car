@@ -118,7 +118,7 @@ const ListeAnnonce = () => {
                                 key={index}
                                 image={'peakpx.jpg'}
                                 modele={modele}
-                                marque={one.id + ' Mercedes-benz'}  
+                                marque={one.id}  
                                 categorie={categorie}
                                 lieu={one.lieu.nom}  
                                 date={one.date}

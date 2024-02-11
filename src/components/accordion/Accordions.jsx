@@ -1,4 +1,4 @@
-const Accordion = ({items, title, id, value}) => {
+const Accordion = ({items, title, id, value, object = false}) => {
 
     const clone = (obj) => Object.assign({}, obj);
 
@@ -34,6 +34,7 @@ const Accordion = ({items, title, id, value}) => {
         }
     }
 
+    
     return (
         <div className="accordion detail">
             { title }<span className="material-symbols-outlined" onClick={(e) => accordionClick(e)}>expand_more</span>
@@ -42,12 +43,13 @@ const Accordion = ({items, title, id, value}) => {
                 style={{
                     display: 'none'
                 }}
-            >
+                >
                 <table>
                     {items.map((item) => {
+                        const key = (object) ? item.key.nom : item.key;
                         return (
                             <tr>
-                                <td>{ item.key }</td>
+                                <td>{ key }</td>
                                 <td align="right">{ item.value }</td>
                             </tr>
                         );

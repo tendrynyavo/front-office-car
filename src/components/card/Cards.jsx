@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Card = ({id, image, modele, marque, categorie, lieu, date, prix}) => {
     return (
         <div className="card-product">
-            <Link to={`/fiche/${id}`}>
+            <Link to={`/fiche/${ id }`}>
                 <div className="card-product__img">
                     <img src={ image } width='100%' alt="Not found" />
                 </div>
