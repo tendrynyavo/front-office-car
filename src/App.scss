@@ -452,13 +452,12 @@ $radius-img: 5px;
 
   display: flex;
   padding: 50px;
+  position: relative;
 
   &__img {
     width: 535px;
-    img {
-      position: sticky;
-      top: 50px;
-    }
+    position: sticky;
+    top: 50px;
   }
 
   &__info {

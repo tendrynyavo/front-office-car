@@ -1,6 +1,6 @@
 import Button from "../../components/button/Buttons";
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Accordion from "../../components/accordion/Accordions";
 import { getList } from "../../services/crud";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -155,7 +155,9 @@ const Fiche = () => {
     
     
                         <div className="fiche__info__button">
-                            <Button name={'Contacter'} />
+                            <Link to={`/message/${annonce.user.id}`}>
+                                <Button name={'Contacter'} />
+                            </Link>
                         </div>
     
                     </div>
