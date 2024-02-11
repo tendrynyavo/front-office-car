@@ -114,6 +114,7 @@ const ListeAnnonce = () => {
                     return (
                         <>
                             <Card  
+                                id={one.id}
                                 key={index}
                                 image={'peakpx.jpg'}
                                 modele={modele}
