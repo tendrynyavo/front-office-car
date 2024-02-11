@@ -1,10 +1,10 @@
 import Header from '../../components/header/Headers';
 import { Outlet } from "react-router-dom";
 
-const Layout = () => {
+const Layout = ({setToken}) => {
     return (
         <>
-            <Header />
+            <Header setToken={setToken} />
             <div className="content">
                 <Outlet />
             </div>

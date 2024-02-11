@@ -17,7 +17,7 @@ function App() {
 
   return (
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout setToken={setToken} />}>
           <Route index element={<ListeAnnonce />} />
           <Route path='/fiche/:id' element={<Fiche />} />
           <Route path='/message/:id' element={<Message />} />

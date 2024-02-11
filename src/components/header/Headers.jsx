@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Input from "../form/Input-forms";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({setToken}) => {
 
     const navigate = useNavigate();
 
@@ -13,6 +13,7 @@ const Header = () => {
 
     const logSubmit = () => {
         sessionStorage.removeItem('token');
+        setToken(null);
         navigate('/');
     }
 
