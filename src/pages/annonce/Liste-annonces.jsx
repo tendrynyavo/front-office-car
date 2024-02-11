@@ -116,7 +116,7 @@ const ListeAnnonce = () => {
                             <Card  
                                 id={one.id}
                                 key={index}
-                                image={'peakpx.jpg'}
+                                image={"data:image/png;base64,"+one.photos[0].bytes}
                                 modele={modele}
                                 marque={one.id}  
                                 categorie={categorie}

@@ -76,7 +76,7 @@ const Fiche = () => {
             }}>
                 <div className="fiche">
                     <div className="fiche__img">
-                        <img src={annonce.photos[0].bytes} alt="" srcset="" />
+                        <img src={"data:image/png;base64,"+annonce.photos[0].bytes} alt="" srcset="" />
                     </div>
                     <div className="fiche__info">
                         
