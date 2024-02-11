@@ -1,21 +1,37 @@
 import Button from "../../components/button/Buttons";
-import React from 'react';
+import React, { useEffect, useState, useParams } from 'react';
 import Accordion from "../../components/accordion/Accordions";
+import { getList } from "../../services/crud";
 
 const Fiche = () => {
+ 
+    const [error, setError] = useState('');
+    const [annonce, setAnnonce] = useState('');
+    const { id } = useParams();
+
+    useEffect(() => {
+        getList(`annonces/${id}`)
+        .then((response) => {
+            setAnnonce(response.data.data.annonce);
+        }).catch(error => {
+            if (error.response) {
+                setError(error.response.data.errors);
+            }
+        });
+    }, []);
 
     const details = [
         {
             'nom': 'Boite de vitesse',
-            'valeur': 'Manuel'
+            'valeur': annonce.voiture.vitesses[0].nom
         },
         {
             'nom': 'Cylindre',
-            'valeur': '8'
+            'valeur': annonce.voiture.cylindre
         },
         {
             'nom': 'Type de moteur',
-            'valeur': 'Combustion'
+            'valeur': annonce.modele.moteurs[0].type.nom
         },
         {
             'nom': 'Moteur',
@@ -64,27 +80,27 @@ const Fiche = () => {
                     
                     
                     <div className="fiche__info__modele">
-                        Maybach Virgil Abloh Edition
+                        { annonce.modele }
                     </div>
                     <div className="fiche__info__marque">
-                        Mercedes-benz
+                        { annonce }
                     </div>
                     <div className="fiche__info__categorie">
-                        SUV
+                        { annonce.voiture.categorie.nom }
                     </div>
                     <div className="fiche__info__date">
-                        02/03/2024
+                        { annonce.date }
                     </div>
                     <div className="fiche__info__value">
                         <div className="fiche__info__value__prix">
-                            100.000.000 Ar
+                            { annonce.prix } Ar
                         </div>
                         <div className="fiche__info__value__prix">
-                            Bonne etat
+                            { annonce.valeur }
                         </div>
                     </div>
                     <div className="fiche__info__description">
-                        Une bière blonde légèrement dorée et rafraîchissante. L'arôme du pain est soutenu en fond par des notes florales de houblon. Le goût du malt est léger, mais riche, et à la fin il y a une amertume végétale agréable et à peine perceptible.
+                        { annonce.description }
                     </div>
 
                     <div className="fiche__info__couleur">
