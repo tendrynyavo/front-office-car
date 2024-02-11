@@ -129,7 +129,7 @@ const Fiche = () => {
                                 { annonce.prix } Ar
                             </div>
                             <div className="fiche__info__value__prix">
-                                { annonce.valeur }
+                                Etat : { annonce.valeur }
                             </div>
                         </div>
                         <div className="fiche__info__description">
