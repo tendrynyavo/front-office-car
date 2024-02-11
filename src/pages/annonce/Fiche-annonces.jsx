@@ -3,6 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Accordion from "../../components/accordion/Accordions";
 import { getList } from "../../services/crud";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 const Fiche = () => {
  
@@ -76,7 +85,23 @@ const Fiche = () => {
             }}>
                 <div className="fiche">
                     <div className="fiche__img">
-                        <img src={"data:image/png;base64,"+annonce.photos[0].bytes} alt="" srcset="" />
+                        <Swiper
+                            // install Swiper modules
+                            modules={[Navigation, Pagination, Scrollbar, A11y]}
+                            spaceBetween={50}
+                            slidesPerView={1}
+                            navigation
+                            pagination={{ clickable: true }}
+                            scrollbar={{ draggable: true }}
+                            onSwiper={(swiper) => console.log(swiper)}
+                            onSlideChange={() => console.log('slide change')}
+                        >
+                            {annonce.photos.map((image) => {
+                                return (
+                                    <SwiperSlide><img src={ "data:image/png;base64," + image.bytes } alt="Not found" /></SwiperSlide>
+                                );
+                            })}
+                        </Swiper>
                     </div>
                     <div className="fiche__info">
                         
